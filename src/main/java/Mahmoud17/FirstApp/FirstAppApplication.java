@@ -15,13 +15,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class FirstAppApplication implements CommandLineRunner {
 
+	ColourPrinter colourPrinter;
+
+	FirstAppApplication(ColourPrinter colourPrinter){
+		this.colourPrinter = colourPrinter;
+	}
 	public static void main(String[] args) {
 		SpringApplication.run(FirstAppApplication.class, args);
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
-		ColourPrinter colourPrinter = new ColourPrinterImpl();
 		System.out.println(colourPrinter.print());
 
 	}
